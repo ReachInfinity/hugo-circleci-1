@@ -10,7 +10,17 @@
 ### Mise en oeuvre du tech-lunch
 ```
 hugo new site techlunch-1
-cd techlunch-1/ && git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/learn
+cd techlunch-1/ && touch .gitingore && touch .gitmodules
+
+.gitignore :
+public/
+
+.gitmodules :
+[submodule "themes/hugo-theme-learn"]
+	path = themes/hugo-theme-learn
+	url = https://github.com/matcornic/hugo-theme-learn.git
+
+git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/learn
 ```
 editez le fichier config.toml et ajouter :
 ```
@@ -18,7 +28,7 @@ baseURL = "<remplir>"
 languageName = "Français"
 languageCode = "fr-FR"
 title = "<remplir>"
-theme = "hugo-theme-learn"
+theme = "learn"
 
 [params]
 themeVariant = "blue"
@@ -31,6 +41,9 @@ disableSearch = false
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 ```
+
+
+
 Créer une page de contenu :
 ```
 hugo new techlunch/_index.md

@@ -1,15 +1,16 @@
 baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
-title = "tech lunch"
-theme = "hugo-theme-learn"
+title = "Tech Lunch"
+theme = "learn"
 
 [params]
 themeVariant = "blue"
 author = "Maxime Calves"
-description = "Comment fonctionne la CI/CD"
+description = "Tech lunch sur la CI/CD de CircleCI"
 showVisitedLinks = true
-disableSearch = true
+disableSearch = false
+
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
