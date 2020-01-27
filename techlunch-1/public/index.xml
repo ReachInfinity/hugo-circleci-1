@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demo on techlunch</title>
+    <link>https://techlunch-1.cfapps.io/</link>
+    <description>Recent content in Demo on techlunch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Mon, 27 Jan 2020 13:46:59 +0100</lastBuildDate>
+    
+	<atom:link href="https://techlunch-1.cfapps.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Techlunch</title>
+      <link>https://techlunch-1.cfapps.io/techlunch/</link>
+      <pubDate>Mon, 27 Jan 2020 13:47:00 +0100</pubDate>
+      
+      <guid>https://techlunch-1.cfapps.io/techlunch/</guid>
+      <description>Tech Lunch n°1 </description>
+    </item>
+    
+  </channel>
+</rss>

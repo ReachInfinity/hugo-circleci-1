@@ -1,0 +1,16 @@
+baseURL = "https://techlunch-1.cfapps.io/"
+languageName = "Français"
+languageCode = "fr-FR"
+title = "techlunch"
+theme = "hugo-theme-learn"
+
+[params]
+themeVariant = "blue"
+author = "Maxime Calves"
+description = "Comment fonctionne la CI/CD"
+showVisitedLinks = true
+disableSearch = true
+
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
