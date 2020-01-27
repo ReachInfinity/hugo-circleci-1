@@ -1,7 +1,7 @@
-# hugo-circleci-1
+# Hugo CircleCI
+[![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
 
 ### Prérequis
-
 - [Git client](https://git-scm.com/downloads)
 - [Hugo client](https://gohugo.io/getting-started/installing)
 - [CircleCI](https://circleci.com/)
