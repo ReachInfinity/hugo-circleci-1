@@ -63,3 +63,20 @@ Créer son premier processus déploiement continue :
 mkdir .circleci
 vim .circleci/config.yml
 ```
+
+Créer le manifeste de déploiement :
+```
+vim manifest.yml
+---
+applications:
+  -
+    name: tech-lunch
+    memory: 64M
+    path: public
+    buildpacks:
+      - staticfile_buildpack
+    routes:
+      - route: techlunch-1-maxime-calves.cfapps.io
+    env:
+      FORCE_HTTPS: true
+```
