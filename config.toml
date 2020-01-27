@@ -1,7 +1,7 @@
-baseURL = "https://techlunch.cfapps.io/"
+baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
-title = "techlunch"
+title = "tech lunch"
 theme = "hugo-theme-learn"
 
 [params]

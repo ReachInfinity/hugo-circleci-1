@@ -7,6 +7,6 @@ applications:
     buildpacks:
       - staticfile_buildpack
     routes:
-      - route: techlunch.cfapps.io
+      - route: tech-lunch.cfapps.io
     env:
       FORCE_HTTPS: true
