@@ -11,6 +11,5 @@ description = "Comment fonctionne la CI/CD"
 showVisitedLinks = true
 disableSearch = true
 
-
 [outputs]
 home = ["HTML", "RSS", "JSON"]
