@@ -1,12 +1,12 @@
 ---
 applications:
   -
-    name: kb-web
+    name: tech-lunch
     memory: 64M
     path: public
     buildpacks:
       - staticfile_buildpack
     routes:
-      - route: techlunch-1.cfapps.io
+      - route: techlunch-1-maxime-calves.cfapps.io
     env:
       FORCE_HTTPS: true
