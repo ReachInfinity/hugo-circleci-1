@@ -10,65 +10,22 @@
 ### Mise en oeuvre du tech-lunch
 ```
 hugo new site techlunch-1
-cd techlunch-1/ && touch .gitingore && touch .gitmodules
+cd techlunch/ && touch .gitingore && touch .gitmodules
 
 .gitignore :
 public/
-
-.gitmodules :
-[submodule "themes/hugo-theme-learn"]
-	path = themes/hugo-theme-learn
-	url = https://github.com/matcornic/hugo-theme-learn.git
-
-git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/learn
 ```
 editez le fichier config.toml et ajouter :
 ```
-baseURL = "<remplir>"
+baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
-title = "<remplir>"
-theme = "learn"
+title = "Tech Lunch"
+theme = "presentation"
 
+### Pour le theme presentation
 [params]
-themeVariant = "blue"
-author = "Maxime Calves"
-description = "<remplir>"
-showVisitedLinks = true
-disableSearch = false
-
-
-[outputs]
-home = ["HTML", "RSS", "JSON"]
-```
-
-
-
-Créer une page de contenu :
-```
-hugo new techlunch/_index.md
-hugo new techlunch/techlunch.md
-
-_index.md
----
-title: "Tech Lunch"
-date: 2020-01-27T14:02:12+01:00
-draft: true
-weight: 15
----
-
-## Content
-
-{{% children sort="Name" %}}
-
-techlunch.md
----
-title: "Hello World"
-date: 2020-01-27T13:59:31+01:00
-draft: false
----
-
-# Hugo
+welcomeText = "Hello World"
 ```
 
 Générer les fichiers statiques du site
@@ -94,7 +51,7 @@ applications:
     buildpacks:
       - staticfile_buildpack
     routes:
-      - route: techlunch-1-maxime-calves.cfapps.io
+      - route: techlunch-maxime-calves.cfapps.io
     env:
       FORCE_HTTPS: true
 ```
