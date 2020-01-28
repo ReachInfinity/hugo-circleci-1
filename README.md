@@ -71,6 +71,11 @@ draft: false
 # Hugo
 ```
 
+Générer les fichiers statiques du site
+```
+hugo -D
+```
+
 Créer son premier processus déploiement continue :
 ```
 mkdir .circleci

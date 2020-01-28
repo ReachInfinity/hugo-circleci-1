@@ -1,0 +1,12 @@
+---
+applications:
+  -
+    name: tech-lunch
+    memory: 64M
+    path: public
+    buildpacks:
+      - staticfile_buildpack
+    routes:
+      - route: tech-lunch.cfapps.io
+    env:
+      FORCE_HTTPS: true
