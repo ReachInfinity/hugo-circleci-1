@@ -9,5 +9,5 @@ theme = "presentation"
 welcomeText = "Hello World"
 
 
-#[outputs]
-#home = ["HTML", "RSS", "JSON"]
+[outputs]
+home = ["HTML", "RSS", "JSON"]
