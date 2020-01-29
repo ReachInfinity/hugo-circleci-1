@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Load submodule
           command: git submodule sync && git submodule update --init
-      - sonarcloud/scan 
+      - sonarcloud/scan
       - run:
           name: Build Hugo static website
           command: HUGO_ENV=production hugo
