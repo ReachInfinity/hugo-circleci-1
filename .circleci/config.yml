@@ -44,12 +44,9 @@ jobs:
 
 workflows:
   version: 2.1
-  build_scan_and_deploy:
+  build_deploy_and_scan:
     jobs:
       - build
       - scan:
-          requires:
-            - build
-      - deploy:
           requires:
             - build
