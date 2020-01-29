@@ -17,22 +17,21 @@ jobs:
       - run:
           name: Build Hugo static website
           command: HUGO_ENV=production hugo
-     - run:
-         name: Install CF CLI
-         command: |
-           apk add wget
-           wget https://cli.run.pivotal.io/stable?release=linux64-binary
-           mv stable?release=linux64-binary /tmp/cf-cli.tgz
-           mkdir -p /usr/local/bin
-           tar -xzf /tmp/cf-cli.tgz -C /usr/local/bin
-           cf --version
-           rm -f /tmp/cf-cli.tgz
-           ls -la
-     - run:
-         name: Deploy
-         command: |
-           cf login -a "$CF_API" -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "$CF_SPACE_PROD"
-           cf push
+      - run:
+          name: Install CF CLI
+          command: |
+            apk add wget
+            wget https://cli.run.pivotal.io/stable?release=linux64-binary
+            mv stable?release=linux64-binary /tmp/cf-cli.tgz
+            mkdir -p /usr/local/bin
+            tar -xzf /tmp/cf-cli.tgz -C /usr/local/bin
+            cf --version
+            rm -f /tmp/cf-cli.tgz
+      - run:
+          name: Deploy
+          command: |
+            cf login -a "$CF_API" -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "$CF_SPACE_PROD"
+            cf push
   scan:
      docker:
        - image: sonarsource/sonarcloud-scan:1.0.1
