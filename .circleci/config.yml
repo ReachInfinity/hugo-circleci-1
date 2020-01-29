@@ -17,20 +17,30 @@ jobs:
       - run:
           name: Build Hugo static website
           command: HUGO_ENV=production hugo
+
+    scan:
+      docker:
+        - image: sonarsoftware/sonar-base-circleci:latest
+      steps:
+      - checkout
       - run:
           name: Install Sonar Scanner
           command: |
             apk add zip wget
             wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
             unzip sonar-scanner-cli-4.2.0.1873-linux.zip 
-            mv sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner /usr/local/bin
+            mv sonar-scanner-4.2.0.1873-linux/ /usr/local/bin
             rm -rf sonar-scanner-cli-4.2.0.1873-linux.zip
-
       - run:
           name: Quality Scan
-          command: |
-            sonar-scanner -Dsonar.projectKey=ReachInfinity_hugo-circleci-1 -Dsonar.organization=reachinfinity -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
-
+          command: sonar-scanner -Dsonar.projectKey=ReachInfinity_hugo-circleci-1 -Dsonar.organization=reachinfinity -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
+      
+      
+    deploy:
+      docker:
+        - image: cibuilds/hugo:0.58.3
+      steps:
+      - checkout  
       - run:
           name: Install CF CLI
           command: |
