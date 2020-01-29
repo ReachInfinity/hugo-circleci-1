@@ -42,6 +42,7 @@ jobs:
            tar -xzf /tmp/cf-cli.tgz -C /usr/local/bin
            cf --version
            rm -f /tmp/cf-cli.tgz
+           ls -la
      - run:
          name: Deploy
          command: |
