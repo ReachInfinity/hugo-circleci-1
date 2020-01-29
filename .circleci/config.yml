@@ -23,7 +23,7 @@ jobs:
             apk add zip wget
             wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
             unzip sonar-scanner-cli-4.2.0.1873-linux.zip
-            cd sonar-scanner-cli-4.2.0.1873-linux/bin
+            cd sonar-scanner-cli-4.2.0.1873-linux/sonar-scanner-cli-4.2.0.1873-linux/bin
             ./sonar-scanner -Dsonar.projectKey=ReachInfinity_hugo-circleci-1 -Dsonar.organization=reachinfinity -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
       - run:
           name: Install CF CLI
