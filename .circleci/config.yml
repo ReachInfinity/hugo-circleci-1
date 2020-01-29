@@ -14,10 +14,17 @@ jobs:
       - run:
           name: Load submodule
           command: git submodule sync && git submodule update --init
-      - sonarcloud/scan
       - run:
           name: Build Hugo static website
           command: HUGO_ENV=production hugo
+      - run:
+          name: Quality Scan
+          command: |
+            apk add zip wget
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+            unzip sonar-scanner-cli-4.2.0.1873-linux.zip
+            cd sonar-scanner-cli-4.2.0.1873-linux/bin
+            ./sonar-scanner -Dsonar.projectKey=ReachInfinity_hugo-circleci-1 -Dsonar.organization=reachinfinity -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
       - run:
           name: Install CF CLI
           command: |
@@ -33,12 +40,3 @@ jobs:
           command: |
             cf login -a "$CF_API" -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "$CF_SPACE_PROD"
             cf push
-
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
-
-workflows:
-  main:
-    jobs:
-      - build:
-          context: SonarCloud

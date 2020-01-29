@@ -1,5 +1,6 @@
 # Hugo CircleCI
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
 
 ### Prérequis
 - [Git client](https://git-scm.com/downloads)
@@ -14,6 +15,11 @@ cd techlunch/ && touch .gitingore && touch .gitmodules
 
 .gitignore :
 public/
+```
+
+Ajouter le theme du site :
+```
+git submodule add https://github.com/spech66/bootstrap-bp-hugo-startpage.git themes/presentation
 ```
 editez le fichier config.toml et ajouter :
 ```
