@@ -20,7 +20,7 @@ jobs:
 
   scan:
      docker:
-       - image: sonarsoftware/sonar-base-circleci:latest
+       - image: sonarsource/sonarcloud-scan:1.0.1
      steps:
      - checkout
      - run:
@@ -50,8 +50,12 @@ jobs:
 
 workflows:
   version: 2.1
-  build_and_deploy:
+  build_scan_and_deploy:
     jobs:
       - build
-      - scan
-      - deploy
+      - scan:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - scan
