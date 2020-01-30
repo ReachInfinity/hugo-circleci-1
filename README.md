@@ -1,6 +1,8 @@
-# Hugo CircleCI
+# Pipeline DevOps 
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
+
+![Pipeline DevOps](https://media.joomeo.com/large/5a7c927573330.jpg)
 
 ### Prérequis
 - [Git client](https://git-scm.com/downloads)
