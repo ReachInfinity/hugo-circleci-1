@@ -12,6 +12,7 @@
 - [SonarCloud](https://sonarcloud.io/)
 - [Slack](https://slack.com/)
 - [Azure DevOps](https://dev.azure.com/)
+- [Zoom](https://zoom.us/)
 
 ### Mise en oeuvre du tech-lunch
 #### Initialisation du plan
@@ -42,7 +43,7 @@ Configurer votre espace de gestion de projet :
   - Artifacts
 
 Créer une premier tâche 
-##### Interconnecter Slack avec Azure Boards
+##### Azure Boards pour Slack
 [AzureBoards sur Slack](https://slack.com/apps/AKR9QDD1D-azure-boards)
 
 ```
@@ -68,7 +69,7 @@ Il manque le favicon sur le site, veuillez créer un issue pour investiguer et c
 
 [Documentation AzureBoard for Slack](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-slack?view=azure-devops)
 
-##### Interconnecter Slack avec Github
+##### Github pour Slack
 
 [Github pour Slack](https://slack.com/intl/fr-fr/help/articles/232289568-GitHub-pour-Slack)
 
@@ -87,7 +88,7 @@ Les fonctionnalités par défaut :
 exemple pour créer une issue sur Github :
 `/github open ReachInfinity/hugo-circleci-1`
 
-##### interconnecter Slack avec CircleCI
+##### CirceCI pour Slack 
 [CircleCI pour Slack](https://slack.com/apps/A0F7VRE7N-circleci)
 
 Exécutez un job CircleCI pour voir l'état du pipeline dans le cannale de communication.
@@ -97,8 +98,21 @@ exemple :
 Success: ReachInfinity's workflow (build_deploy_and_scan) in ReachInfinity/hugo-circleci-1 (master)
 - Test de la qualité du code (a03c10f)
 ```
+##### Zoom pour Slack
+[Zoom pour Slack](https://slack.com/apps/A5GE9BMQC-zoom)
+```
+/zoom Start a meeting
+/zoom meeting [topic] Start a meeting with topic
+/zoom join [meeting id/personal link name] Join a meeting using meeting ID/personal link name
+/zoom join me Join a meeting using your personal meeting ID
+/zoom call [@contact/phone number] Start a phone call with a contact or a phone number
+/zoom config Configure your settings for Zoom Meetings in Slack
+/zoom logout Logout from Zoom on all your Slack channels and direct messages
+```
+##### Github pour AzureBoards
 
-##### Interconnecter Github avec AzureBoards
+
+
 
 
 #### Initialisation du développement web
@@ -207,7 +221,7 @@ sonar.projectName=hugo-circleci-1
 sonar.projectVersion=1.0
  
 # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
-sonar.sources=public/
+sonar.sources=.
  
 # Encoding of the source code. Default is default system encoding
 sonar.sourceEncoding=UTF-8
@@ -223,7 +237,7 @@ Ajouter le processus automatique de scan via CircleCI :
      - checkout
      - run:
          name: Quality Scan
-         command: sonar-scanner -Dsonar.projectKey=ReachInfinity_hugo-circleci-1 -Dsonar.organization=reachinfinity -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
+         command: sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
 
 workflows:
   version: 2.1
@@ -235,7 +249,9 @@ workflows:
             - build
 ```
 
+Ajouter du contenu pour le scan, créer le répertoire assets/css/ à la racine et créer le fichier test.scss, remplissez le avec un [exemple](https://github.com/NormandErwan/Blogpaper/blob/master/assets/css/blogpaper.scss)
+
+
 #### Initialisation du monitoring de la plateforme web
 
 [Metric Pivotal](https://metrics.run.pivotal.io/apps/)
-
