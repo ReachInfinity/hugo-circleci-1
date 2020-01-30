@@ -2,6 +2,10 @@
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
 
+<script async defer src="https://tech-lunchworkspace.slack.com/slackin.js"></script>
+[![Slack Status](https://tech-lunchworkspace.slack.com/badge.svg)](https://tech-lunchworkspace.slack.com/)
+
+
 ### Prérequis
 - [Git client](https://git-scm.com/downloads)
 - [Hugo client](https://gohugo.io/getting-started/installing)
@@ -9,9 +13,97 @@
 - [Pivotal](https://run.pivotal.io/)
 - [SonarCloud](https://sonarcloud.io/)
 - [Slack](https://slack.com/)
+- [Azure DevOps](https://dev.azure.com/)
 
 ### Mise en oeuvre du tech-lunch
-#### Initialisation du projet web
+#### Initialisation du plan
+##### Créer l'espace de collaboration
+Se connecter à [Slack](https://slack.com/)
+
+Créer un espace de collaboration [Slack Workspace](https://slack.com/create#email)
+
+Ajouter des canaux de communications pour vos besoins de centraliser les informations liée au projet [Slack Channel](https://slack.com/intl/en-fr/help/articles/201402297-Create-a-channel)
+
+- bugs
+- kanban
+- CI/CD
+
+##### Créer l'espace de gestion de projet 
+Se connecter à [AzureDevOps](https://dev.azure.com/)
+
+Créer une nouvelle organisation [AzureDevOps Organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+
+Créer un projet public [AzureDevOps Project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page)
+
+Configurer votre espace de gestion de projet :
+1.  Click Project settings
+2.  Désactiver les services Azure Devops inutile 
+  - Repos
+  - Pipelines
+  - Test Plans
+  - Artifacts
+
+Créer une premier tâche 
+##### Interconnecter Slack avec Azure Boards
+[AzureBoards sur Slack](https://slack.com/apps/AKR9QDD1D-azure-boards)
+
+```
+Channel Kanban :
+/azboards signin
+/azboards link https://dev.azure.com/techlunch/Tech-lunch
+/azboards subscriptions
+Event : Work item created/deleted/restored/updated
+
+#### Créer une tâche sur Azure Board via Slack
+/azboards create 
+Task
+```
+
+Créer un item via des actions sur les messages
+```
+Channel Bugs :
+Il manque le favicon sur le site, veuillez créer un issue pour investiguer et corriger  
+```
+
+![Creer un item via un message](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/media/integrations-slack/message-action-collated.png?view=azure-devops)
+
+
+[Docuementation AzureBoard for Slack](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-slack?view=azure-devops)
+
+##### Interconnecter Slack avec Github
+
+[Github pour Slack](https://slack.com/intl/fr-fr/help/articles/232289568-GitHub-pour-Slack)
+
+```
+/github subscribe ReachInfinity/hugo-circleci-1
+/github help
+```
+Les fonctionnalités par défaut :
+- issues
+- pulls
+- statuses
+- commits
+- deployments
+- public
+
+exemple pour créer une issue sur Github :
+`/github open ReachInfinity/hugo-circleci-1`
+
+##### interconnecter Slack avec CircleCI
+[CircleCI pour Slack](https://slack.com/apps/A0F7VRE7N-circleci)
+
+Exécutez un job CircleCI pour voir l'état du pipeline dans le cannale de communication.
+
+exemple :
+```
+Success: ReachInfinity's workflow (build_deploy_and_scan) in ReachInfinity/hugo-circleci-1 (master)
+- Test de la qualité du code (a03c10f)
+```
+
+##### Interconnecter Github avec AzureBoards
+
+
+#### Initialisation du développement web
 ```
 hugo new site techlunch-1
 cd techlunch/ && touch .gitingore && touch .gitmodules
@@ -40,6 +132,12 @@ welcomeText = "Hello World"
 Générer les fichiers statiques du site
 ```
 hugo -D
+```
+
+Exécuter le serveur web avec une autoregénération :
+```
+hugo server -D
+http://localhost:1313/
 ```
 #### Initialisation du processus CI/CD
 Créer son premier processus déploiement continue :
@@ -138,4 +236,8 @@ workflows:
           requires:
             - build
 ```
+
+#### Initialisation du monitoring de la plateforme web
+
+[Metric Pivotal](https://metrics.run.pivotal.io/apps/)
 
