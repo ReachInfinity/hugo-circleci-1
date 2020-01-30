@@ -2,10 +2,6 @@
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
 
-<script async defer src="https://tech-lunchworkspace.slack.com/slackin.js"></script>
-[![Slack Status](https://tech-lunchworkspace.slack.com/badge.svg)](https://tech-lunchworkspace.slack.com/)
-
-
 ### Prérequis
 - [Git client](https://git-scm.com/downloads)
 - [Hugo client](https://gohugo.io/getting-started/installing)
@@ -68,7 +64,7 @@ Il manque le favicon sur le site, veuillez créer un issue pour investiguer et c
 ![Creer un item via un message](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/media/integrations-slack/message-action-collated.png?view=azure-devops)
 
 
-[Docuementation AzureBoard for Slack](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-slack?view=azure-devops)
+[Documentation AzureBoard for Slack](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-slack?view=azure-devops)
 
 ##### Interconnecter Slack avec Github
 
