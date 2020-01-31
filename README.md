@@ -110,10 +110,9 @@ Success: ReachInfinity's workflow (build_deploy_and_scan) in ReachInfinity/hugo-
 /zoom logout Logout from Zoom on all your Slack channels and direct messages
 ```
 ##### Github pour AzureBoards
+[Github pour Azure Boards](https://github.com/marketplace/azure-boards/plan/MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4yMjEw#pricing-and-setup)
 
-
-
-
+[Documentation](https://azure.microsoft.com/fr-fr/blog/linking-your-github-commits-with-azure-boards/)
 
 #### Initialisation du développement web
 ```

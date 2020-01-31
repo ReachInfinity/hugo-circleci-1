@@ -18,6 +18,11 @@ jobs:
           name: Build Hugo static website
           command: HUGO_ENV=production hugo
       - run:
+          name: Test generated HTML files
+          command: |
+            htmlproofer public/ --allow-hash-href --check-html \
+            --empty-alt-ignore --disable-external
+      - run:
           name: Install CF CLI
           command: |
             apk add wget
