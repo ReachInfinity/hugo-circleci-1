@@ -1,12 +1,19 @@
 baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
-title = "Tech Lunch"
+title = "Tech lunch"
 theme = "ananke"
+DefaultContentLanguage = "fr"
 
 ### Pour le theme presentation
 [params]
-
+favicon = ""
+facebook = "https://www.facebook.com/"
+twitter = "https://twitter.com/GoHugoIO"
+instagram = "https://www.instagram.com/?hl=fr"
+youtube = "https://www.youtube.com/?hl=FR"
+linkedin = "https://fr.linkedin.com/"
+background_color_class = "bg-black"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
