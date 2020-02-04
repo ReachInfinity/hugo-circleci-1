@@ -2,11 +2,10 @@ baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
 title = "Tech Lunch"
-theme = "presentation"
+theme = "ananke"
 
 ### Pour le theme presentation
 [params]
-welcomeText = "Hello World"
 
 
 [outputs]
