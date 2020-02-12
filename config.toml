@@ -1,7 +1,7 @@
 baseURL = "https://tech-lunch.cfapps.io/"
 languageName = "Français"
 languageCode = "fr-FR"
-title = "Salut Victor deuxième essai"
+title = "Salut Victor deuxième essaie"
 theme = "ananke"
 DefaultContentLanguage = "fr"
 
