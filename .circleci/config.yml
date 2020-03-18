@@ -44,20 +44,17 @@ jobs:
      - run:
          name: Quality Scan
          command: sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
-
   test:
      docker:
        - image: docker:19.03.8
      steps:
      - checkout
      run:
-      name: Running k6 tests
-      command: |
-        docker pull loadimpact/k6:latest
-        docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v loadtests:/ci/loadtests loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
+        name: Running k6 tests
+        command: |
+          docker pull loadimpact/k6:latest
+          docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v loadtests:/ci/loadtests loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
  
-
-
 workflows:
   version: 2.1
   build_deploy_and_scan:
@@ -80,7 +77,6 @@ workflows:
             branches:
               only:
                 - master
-                - beta
     jobs:
       - build
       - scan
