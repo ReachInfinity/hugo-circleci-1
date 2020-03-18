@@ -5,7 +5,11 @@ import http from 'k6/http';
 // Creator: k6 Browser Recorder
 
 export let options = {
-    maxRedirects: 0,
+    duration: "1m",
+  vus: 50,
+  thresholds: {
+    http_req_duration: ["p(95)<500"]
+  }
 };
 
 export default function() {
