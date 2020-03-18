@@ -5,7 +5,6 @@ jobs:
       # 2019-10-23 BTH: had to fix the version as there is a breaking change in latest (=0.59)
       # See https://hub.docker.com/r/cibuilds/hugo, https://github.com/cibuilds/hugo
       - image: cibuilds/hugo:0.58.3
-
     steps:
       - checkout
       - run:
@@ -46,6 +45,19 @@ jobs:
          name: Quality Scan
          command: sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login="$SONAR_LOGIN"
 
+  test:
+     docker:
+       - image: docker:19.03.8
+     steps:
+     - checkout
+     run:
+      name: Running k6 tests
+      command: |
+        docker pull loadimpact/k6:latest
+        docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v loadtests:/ci/loadtests loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
+ 
+
+
 workflows:
   version: 2.1
   build_deploy_and_scan:
@@ -54,3 +66,21 @@ workflows:
       - scan:
           requires:
             - build
+      - test:
+          requires:
+            - build
+ # Scheduled workflows may be delayed by up to 15 minutes.
+ # This is done to maintain reliability during busy times such as 12:00am UTC. 
+ # Scheduled workflows should not assume they are started with to-the-minute accuracy.
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - beta
+    jobs:
+      - build
+      - scan

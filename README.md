@@ -1,22 +1,25 @@
-# Pipeline DevOps 
+# Pipeline DevOps :two_men_holding_hands:
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
 
 ![Pipeline DevOps](https://media.joomeo.com/large/5a7c927573330.jpg)
 
-### Prérequis
+### Prérequis :red_circle:
 - [Git client](https://git-scm.com/downloads)
 - [Hugo client](https://gohugo.io/getting-started/installing)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 - [CircleCI](https://circleci.com/)
 - [Pivotal](https://run.pivotal.io/)
 - [SonarCloud](https://sonarcloud.io/)
+- [Sonarlint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 - [Slack](https://slack.com/)
 - [Azure DevOps](https://dev.azure.com/)
 - [Zoom](https://zoom.us/)
+- [UptimeBot](https://uptime.bot/)
 
-### Mise en oeuvre du tech-lunch
+### Mise en oeuvre du tech-lunch :clap:
 #### Initialisation du plan
-##### Créer l'espace de collaboration
+##### Créer l'espace de collaboration :computer:
 Se connecter à [Slack](https://slack.com/)
 
 Créer un espace de collaboration [Slack Workspace](https://slack.com/create#email)
@@ -27,7 +30,7 @@ Ajouter des canaux de communications pour vos besoins de centraliser les informa
 - kanban
 - CI/CD
 
-##### Créer l'espace de gestion de projet 
+##### Créer l'espace de gestion de projet :date:
 Se connecter à [AzureDevOps](https://dev.azure.com/)
 
 Créer une nouvelle organisation [AzureDevOps Organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops)
@@ -69,7 +72,7 @@ Il manque le favicon sur le site, veuillez créer un issue pour investiguer et c
 
 [Documentation AzureBoard for Slack](https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-slack?view=azure-devops)
 
-##### Github pour Slack
+##### Github pour Slack :octocat:
 
 [Github pour Slack](https://slack.com/intl/fr-fr/help/articles/232289568-GitHub-pour-Slack)
 
@@ -98,7 +101,7 @@ exemple :
 Success: ReachInfinity's workflow (build_deploy_and_scan) in ReachInfinity/hugo-circleci-1 (master)
 - Test de la qualité du code (a03c10f)
 ```
-##### Zoom pour Slack
+##### Zoom pour Slack :camera:
 [Zoom pour Slack](https://slack.com/apps/A5GE9BMQC-zoom)
 ```
 /zoom Start a meeting
