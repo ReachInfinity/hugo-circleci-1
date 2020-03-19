@@ -16,6 +16,7 @@
 - [Azure DevOps](https://dev.azure.com/)
 - [Zoom](https://zoom.us/)
 - [UptimeBot](https://uptime.bot/)
+- [K6](https://k6.io/cloud)
 
 ### Mise en oeuvre du tech-lunch :clap:
 #### Initialisation du plan
@@ -112,6 +113,11 @@ Success: ReachInfinity's workflow (build_deploy_and_scan) in ReachInfinity/hugo-
 /zoom config Configure your settings for Zoom Meetings in Slack
 /zoom logout Logout from Zoom on all your Slack channels and direct messages
 ```
+
+##### UptimeBot pour Slack 
+[UptimeBot pour Slack](https://tech-lunchworkspace.slack.com/apps/A9Z9ZNFE1-uptimebot?next_id=0)
+
+
 ##### Github pour AzureBoards
 [Github pour Azure Boards](https://github.com/marketplace/azure-boards/plan/MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4yMjEw#pricing-and-setup)
 
@@ -253,7 +259,72 @@ workflows:
 
 Ajouter du contenu pour le scan, créer le répertoire assets/css/ à la racine et créer le fichier test.scss, remplissez le avec un [exemple](https://github.com/NormandErwan/Blogpaper/blob/master/assets/css/blogpaper.scss)
 
+#### Initialisation des tests de performance
+Générer le script d'exécution des tests de performance
 
+[K6 recorder](https://k6.io/docs/cloud/creating-and-running-a-test/recording-a-test-script)
+
+Créer votre arborscence dans le projet :
+```
+mkdir loadtests
+```
+Ajouter le fichier générer juste avant dans `loadtests`
+
+Modifier le fichier `config.tmol` de circleci :
+`.circleci/config.toml`
+```
+version: 2.1
+jobs:
+...
+  test:
+     machine: true
+     steps:
+     - checkout
+     - run:
+        name: Running k6 tests
+        command: |
+          docker pull loadimpact/k6:latest 
+          docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v $PWD:/ci/ loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
+...          
+workflows:
+  version: 2.1
+  build_deploy_and_scan:
+...
+     - test:
+          requires:
+            - build
+```
+
+Ajouter dans votre projet CircleCI la variable d'environnement `K6_CLOUD_TOKEN`
+[K6 pour CircleCI](https://k6.io/blog/integrating-load-testing-with-circleci)
+
+Ajouter les notifications de k6 dans Slack
+[K6 pour Slack](https://api.slack.com/messaging/webhooks#posting_with_webhooks)  
+
+Récupérer l'URL afin de l'intégrer dans K6.  
+[Activer les notifications sur K6](https://k6.io/docs/cloud/integrations/notifications)
+
+#### Initialisation d'un pipeline nocture
+Il est possible de planifier l'exécution d'un pipeline la nuit afin de garantir le bon fonctionnement de la CI et des applications.
+L'objectif étant d'exécuter ce pipeline la lui et le premier arriver peut déjà comprendre certains dysfonctionnement du pipeline.
+
+Modifier le fichier `config.toml` de Circleci: 
+```
+ # Scheduled workflows may be delayed by up to 15 minutes.
+ # This is done to maintain reliability during busy times such as 12:00am UTC. 
+ # Scheduled workflows should not assume they are started with to-the-minute accuracy.
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - scan
+```
 #### Initialisation du monitoring de la plateforme web
 
 [Metric Pivotal](https://metrics.run.pivotal.io/apps/)

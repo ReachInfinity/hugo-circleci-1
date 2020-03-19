@@ -50,7 +50,9 @@ jobs:
      - checkout
      - run:
         name: Running k6 tests
-        command: docker pull loadimpact/k6:latest && docker run -i -e K6_CLOUD_TOKEN="$K6_CLOUD_TOKEN" -v $PWD:/ci/ loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
+        command: |
+          docker pull loadimpact/k6:latest 
+          docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v $PWD:/ci/ loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
  
 workflows:
   version: 2.1
