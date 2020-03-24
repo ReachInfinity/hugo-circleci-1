@@ -58,7 +58,7 @@ jobs:
       docker:
         - image: circleci/node:13.10.1-browsers
       steps:
-        - checkout:
+        - checkout
         - run:
             name: Browser Testing
             command: |
