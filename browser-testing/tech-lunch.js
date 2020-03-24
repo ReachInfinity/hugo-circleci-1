@@ -39,8 +39,8 @@ const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
      .build();
 
     // navigate to a url, search for a text and get title of page
-    driver.get('https://www.google.com/ncr').then(function() {
-        driver.findElement(webdriver.By.name('q')).sendKeys('LambdaTest\n').then(function() {
+    driver.get('https://tech-lunch.cfapps.io/').then(function() {
+        driver.findElement(webdriver.By.name('q')).sendKeys('Tech-Lunch\n').then(function() {
             driver.getTitle().then(function(title) {
                 setTimeout(function() {
                     console.log(title);
