@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  lambda-tunnel: lambdatest/lambda-tunnel@0.0.1
-
 jobs:
   build:
     docker:
