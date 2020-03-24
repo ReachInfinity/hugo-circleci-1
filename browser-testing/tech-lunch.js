@@ -3,10 +3,10 @@ const webdriver = require('selenium-webdriver');
     until = webdriver.until;
 
 // username: Username can be found at automation dashboard
-const USERNAME = "maximecalves";
+const USERNAME = $LAMBDA_USER;
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
-const KEY = "a8flr1NKYsrlZ8CcuDsBRemP173zJxS7mYS7AgpQH4LmYIM5bU";
+const KEY = $LAMBDA_KEY;
 
 // gridUrl: gridUrl can be found at automation dashboard
 const GRID_HOST = 'hub.lambdatest.com/wd/hub';
@@ -23,7 +23,7 @@ function searchTextOnGoogle() {
        console: true,
        name: 'Test 1', // name of the test
        build: 'NodeJS build', // name of the build
-       video: false,
+       video: true,
        timezone: "UTC+01:00",
        geoLocation: "FR"
      };
