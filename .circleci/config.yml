@@ -62,7 +62,6 @@ jobs:
         - run:
             name: Browser Testing
             command: |
-              npm install npm@latest -g
               npm i selenium-webdriver
               node browser-testing/tech-lunch.js
 
