@@ -3,10 +3,10 @@ const webdriver = require('selenium-webdriver');
     until = webdriver.until;
 
 // username: Username can be found at automation dashboard
-const USERNAME = $LAMBDA_USER;
+const USERNAME = process.env.LAMBDA_USER;
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
-const KEY = $LAMBDA_KEY;
+const KEY = process.env.LAMBDA_KEY;
 
 // gridUrl: gridUrl can be found at automation dashboard
 const GRID_HOST = 'hub.lambdatest.com/wd/hub';
