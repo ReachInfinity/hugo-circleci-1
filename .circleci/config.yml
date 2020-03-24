@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  lambda-tunnel: lambdatest/lambda-tunnel@0.0.1
+
 jobs:
   build:
     docker:
@@ -53,6 +57,18 @@ jobs:
         command: |
           docker pull loadimpact/k6:latest 
           docker run -i -e K6_CLOUD_TOKEN=$K6_CLOUD_TOKEN -v $PWD:/ci/ loadimpact/k6:latest cloud /ci/loadtests/performance-test.js
+  testUI:
+      docker:
+        - image: circleci/node:13.10.1-browsers
+      steps:
+        - checkout:
+        - run:
+            name: Browser Testing
+            command: |
+              npm install npm@latest -g
+              npm i selenium-webdriver
+              node browser-testing/tech-lunch.js
+
  
 workflows:
   version: 2.1
@@ -63,6 +79,9 @@ workflows:
           requires:
             - build
       - test:
+          requires:
+            - build
+      - testUI:
           requires:
             - build
  # Scheduled workflows may be delayed by up to 15 minutes.
