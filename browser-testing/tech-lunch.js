@@ -40,5 +40,10 @@ const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
 
     // navigate to a url, search for a text and get title of page
     driver.get('https://tech-lunch.cfapps.io/')
-}
+    setTimeout(function() {
+                console.log(title);
+                driver.quit();
+                }, 5000);
+    }
+    
 searchTextOnGoogle();
