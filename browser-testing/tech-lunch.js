@@ -44,6 +44,7 @@ const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
     })
     .then(function(CurrentUrl){
         console.log(CurrentUrl)
+        driver.find.Element(By.title("Facebook link")).click()
         setTimeout(() => {  console.log("End sleep"); }, 5000);
         driver.quit();
     })
