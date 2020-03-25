@@ -39,10 +39,10 @@ const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
      .build();
 
     // navigate to a url, search for a text and get title of page
-    await driver.get('https://tech-lunch.cfapps.io/');
+    driver.get('https://tech-lunch.cfapps.io/');
 
-    await driver.getTitle().then(function(title) {
-        console.log("The title is" + title)
+    driver.getTitle().then(function(title) {
+        console.log("The title is" + title)       
     });
     driver.quit();
 }
