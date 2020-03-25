@@ -28,6 +28,7 @@ function searchTextOnGoogle() {
        geoLocation: "FR"
      };
 
+
 // URL: https://{username}:{accessToken}@hub.lambdatest.com/wd/hub
 
 const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
@@ -44,7 +45,6 @@ const gridUrl = 'https://' + USERNAME + ':' + KEY + '@' + GRID_HOST;
     })
     .then(function(CurrentUrl){
         console.log(CurrentUrl)
-        driver.find.Element(By.linktext("Facebook link")).click()
         setTimeout(() => {  console.log("End sleep"); }, 5000);
         driver.quit();
     })
