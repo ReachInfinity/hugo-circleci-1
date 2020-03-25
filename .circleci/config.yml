@@ -78,10 +78,6 @@ workflows:
       - test:
           requires:
             - build
-          filters:
-            branches:
-              only:
-                - /v.*/
       - testUI:
           requires:
             - build
