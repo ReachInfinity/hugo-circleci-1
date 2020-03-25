@@ -17,6 +17,7 @@
 - [Zoom](https://zoom.us/)
 - [UptimeBot](https://uptime.bot/)
 - [K6](https://k6.io/cloud)
+- [LambdaTest](https://www.lambdatest.com/)
 
 ### Mise en oeuvre du tech-lunch :clap:
 #### Initialisation du plan
@@ -259,6 +260,38 @@ workflows:
 
 Ajouter du contenu pour le scan, créer le répertoire assets/css/ à la racine et créer le fichier test.scss, remplissez le avec un [exemple](https://github.com/NormandErwan/Blogpaper/blob/master/assets/css/blogpaper.scss)
 
+#### Initialisation des tests de navigation utilisateur
+
+Créer votre arborscence dans le projet :
+```
+mkdir browser-testing
+```  
+
+Ajouter le fichier tech-lunch.js et développez votre test, dans l'exemple du Tech-Lunch, c'est une adaptation de l'exemple proposer par [LambdaTest](https://www.lambdatest.com/support/docs/quick-guide-to-run-node-js-tests-on-lambdatest-selenium-grid/)
+
+Installer nodeJs sur votre poste et exécuter la commande suivante :
+```
+npm install && npm i selenium-webdriver
+```  
+
+Modifier le fichier `config.toml` de circleci : `.circleci/config.toml`  
+```
+  testUI:
+      docker:
+        - image: circleci/node:13.10.1-browsers
+      steps:
+        - checkout
+        - run:
+            name: Browser Testing
+            command: |
+              npm i selenium-webdriver
+              node browser-testing/tech-lunch.js
+...
+
+     - testUI:
+          requires:
+            - build
+```
 #### Initialisation des tests de performance
 Générer le script d'exécution des tests de performance
 
@@ -270,7 +303,7 @@ mkdir loadtests
 ```
 Ajouter le fichier générer juste avant dans `loadtests`
 
-Modifier le fichier `config.tmol` de circleci :
+Modifier le fichier `config.toml` de circleci :
 `.circleci/config.toml`
 ```
 version: 2.1
