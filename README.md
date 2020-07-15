@@ -1,8 +1,11 @@
 # Pipeline DevOps :two_men_holding_hands:
+[![Board Status](https://dev.azure.com/techlunch/5525f669-598d-4fcd-8aff-7b4010c89f1d/9ad87432-81ec-48db-85a3-8fd769183492/_apis/work/boardbadge/7992466c-c3b2-48b5-87b1-0437f9d832f0)](https://dev.azure.com/techlunch/5525f669-598d-4fcd-8aff-7b4010c89f1d/_boards/board/t/9ad87432-81ec-48db-85a3-8fd769183492/Microsoft.RequirementCategory/)
+
 [![CircleCI](https://circleci.com/gh/ReachInfinity/hugo-circleci-1.svg?style=svg&circle-token=8f80002eaa1ad9d1601791725b1fcc1952bea479)](https://circleci.com/gh/ReachInfinity/hugo-circleci-1)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ReachInfinity_hugo-circleci-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=ReachInfinity_hugo-circleci-1)
 
-![Pipeline DevOps](https://media.joomeo.com/large/5a7c927573330.jpg)
+![Pipeline DevOps](https://media.joomeo.com/large/5a7c927573330.jpg)  
 
 ### Prérequis :red_circle:
 - [Git client](https://git-scm.com/downloads)
