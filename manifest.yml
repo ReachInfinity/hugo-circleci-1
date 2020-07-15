@@ -10,4 +10,3 @@ applications:
       - route: tech-lunch.cfapps.io
     env:
       FORCE_HTTPS: true
-
